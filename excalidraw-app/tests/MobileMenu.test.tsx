@@ -6,6 +6,8 @@ import {
   restoreOriginalGetBoundingClientRect,
 } from "@excalidraw/excalidraw/tests/test-utils";
 
+import { BrandLockup } from "../branding/DeloitteLogo";
+
 describe("Test MobileMenu", () => {
   const { h } = window;
   const dimensions = { height: 400, width: 800 };
@@ -17,7 +19,13 @@ describe("Test MobileMenu", () => {
   beforeEach(async () => {
     await render(
       <Excalidraw>
-        <WelcomeScreen />
+        <WelcomeScreen>
+          <WelcomeScreen.Center>
+            <WelcomeScreen.Center.Logo>
+              <BrandLockup />
+            </WelcomeScreen.Center.Logo>
+          </WelcomeScreen.Center>
+        </WelcomeScreen>
       </Excalidraw>,
     );
     h.app.refreshEditorInterface();
